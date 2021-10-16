@@ -1,4 +1,7 @@
 // Body and container
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
 body {
     margin: 0;
     display: flex;
@@ -17,11 +20,16 @@ code {
 }
 
 .container {
+    position: relative;
+    font-family: 'Roboto';
+    letter-spacing: 0.05rem;
     width: 1200px;
-    height: max-content;
+    min-height: 100vh;
+    color: #fff;
 }
 // Body and container
 
 
 @import './variables';
 @import './nav';
+@import './main';
