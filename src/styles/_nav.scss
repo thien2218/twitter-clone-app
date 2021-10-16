@@ -4,7 +4,7 @@
 
     &::after {
         content: '';
-        width: 5px;
+        width: 3.5px;
         height: 100%;
         position: absolute;
         right: -1px;
@@ -26,11 +26,11 @@
     height: 100vh;
 
     .icon {
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
 
     .twitter {
-        font-size: 50px;
+        font-size: 40px;
     }
 
     .navItem {
@@ -43,9 +43,11 @@
     }
 
     .avatar {
-        width: 48px;
-        height: 48px;
+        @include flexCenter();
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         cursor: pointer;
+        overflow: hidden;
     }
 }
