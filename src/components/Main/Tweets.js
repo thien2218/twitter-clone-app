@@ -1,13 +1,19 @@
 import search from '../../images/search-icon.svg';
-import meme from '../../images/meme.jpg';
-import pfp from '../../images/landscape.png';
 
-const Tweets = () => {
+const Tweets = ({ setSearch, data }) => {
+    let searchStr;
+
+    const onEnter = e => {
+        if(e.key === 'Enter') {
+            setSearch(searchStr);
+        }
+    }
+
     return (
         <div className='content'>
             <div className='search'>
-                <input type="text" placeholder='Search Tweets'/>
-                <div className='searchBtn'><img src={search} alt='Search'></img></div>
+                <input type="text" placeholder='Search Tweets' onChange={e => searchStr = e.target.value} onKeyUp={e => onEnter(e)}/>
+                <div className='searchBtn' onClick={() => setSearch(searchStr)}><img src={search} alt='Search'></img></div>
             </div>
 
             <div className="tweet">

@@ -4,24 +4,27 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
+  const [data, setData] = useState({})
 
   useEffect(() => getData(), [search]);
 
   function getData() {
+    if(!search) return;
+
     axios.get('/api/tweets', {
       params: {
-        query: search
+        query: search,
       }
     })
-      .then(res => console.log(res.data))
+      .then(res => console.log(res))
       .catch(err => console.log(err.message))
   }
 
   return (
     <div className='container'>
       <Navigation />
-      <Main />
+      <Main setSearch={setSearch} data={data} />
     </div>
   );
 }

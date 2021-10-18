@@ -1,10 +1,10 @@
 import Trends from "./Trends";
 import Tweets from "./Tweets";
 
-const Main = () => {
+const Main = ({ setSearch, data }) => {
     return (
         <div className='main'>
-            <Tweets />
+            <Tweets setSearch={setSearch} data={data} />
             <Trends />
         </div>
     )
