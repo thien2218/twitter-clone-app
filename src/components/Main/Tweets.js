@@ -9,6 +9,7 @@ const Tweets = () => {
                 <input type="text" placeholder='Search Tweets'/>
                 <div className='searchBtn'><img src={search} alt='Search'></img></div>
             </div>
+
             <div className="tweet">
                 <div className="tweet-box">
                     <div className="tweet-info">
@@ -26,7 +27,8 @@ const Tweets = () => {
                     <div className="tweet-time">20 hours ago</div>
                 </div>
             </div>
-            <div className="next"><i class="fas fa-arrow-down"></i></div>
+            
+            <div className="next"><i className="fas fa-arrow-down"></i></div>
         </div>
     )
 }
