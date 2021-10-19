@@ -5,26 +5,28 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [search, setSearch] = useState('');
-  const [data, setData] = useState({})
+  const [data, setData] = useState({});
+  const [count, setCount] = useState(0);
 
-  useEffect(() => getData(), [search]);
+  useEffect(() => getData(), [count]);
 
   function getData() {
     if(!search) return;
 
     axios.get('/api/tweets', {
       params: {
-        query: search,
+        q: search,
+        count: 10,
       }
     })
-      .then(res => console.log(res))
+      .then(res => console.log(res.data))
       .catch(err => console.log(err.message))
   }
 
   return (
     <div className='container'>
       <Navigation />
-      <Main setSearch={setSearch} data={data} />
+      <Main setSearch={setSearch} setCount={setCount} data={data} />
     </div>
   );
 }

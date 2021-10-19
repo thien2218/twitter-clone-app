@@ -1,19 +1,17 @@
 import search from '../../images/search-icon.svg';
 
-const Tweets = ({ setSearch, data }) => {
-    let searchStr;
-
+const Tweets = ({ setSearch, data, setCount }) => {
     const onEnter = e => {
         if(e.key === 'Enter') {
-            setSearch(searchStr);
+            setCount(prevCount => prevCount += 1);
         }
     }
 
     return (
         <div className='content'>
             <div className='search'>
-                <input type="text" placeholder='Search Tweets' onChange={e => searchStr = e.target.value} onKeyUp={e => onEnter(e)}/>
-                <div className='searchBtn' onClick={() => setSearch(searchStr)}><img src={search} alt='Search'></img></div>
+                <input type="text" placeholder='Search Tweets' onChange={e => setSearch(encodeURIComponent(e.target.value))} onKeyUp={e => onEnter(e)}/>
+                <div className='searchBtn' onClick={() => setCount(prevCount => prevCount += 1)}><img src={search} alt='Search'></img></div>
             </div>
 
             <div className="tweet">

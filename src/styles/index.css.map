@@ -6,7 +6,7 @@
         "_variables.scss",
         "_nav.scss",
         "_main.scss",
-        "_content.scss",
+        "_tweets.scss",
         "_trend.scss"
     ],
     "names": [],
