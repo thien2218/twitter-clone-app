@@ -10,29 +10,35 @@ const Tweets = ({ setSearch, data, setCount }) => {
     return (
         <div className='content'>
             <div className='search'>
-                <input type="text" placeholder='Search Tweets' onChange={e => setSearch(encodeURIComponent(e.target.value))} onKeyUp={e => onEnter(e)}/>
+                <input id='search' type="text" placeholder='Search Tweets' onChange={e => setSearch(encodeURIComponent(e.target.value))} onKeyUp={e => onEnter(e)}/>
                 <div className='searchBtn' onClick={() => setCount(prevCount => prevCount += 1)}><img src={search} alt='Search'></img></div>
             </div>
 
-            <div className="tweet">
-                <div className="tweet-box">
-                    <div className="tweet-info">
-                        <div className="tweet-user-pfp"></div>
-                        <div className="user">
-                            <div className="name">William</div>
-                            <div className="username">@william</div>
+            {data.map(tweet => (
+                <div className="tweet" key={tweet.id_str}>
+                    <div className="tweet-box">
+                        <div className="tweet-info">
+                            <div className="tweet-user-pfp"><img src={tweet.user.profile_image_url} alt="PFP" /></div>
+                            <div className="user">
+                                <div className="name">{tweet.user.name}</div>
+                                <div className="username">{tweet.user.screen_name}</div>
+                            </div>
                         </div>
+
+                        {tweet.extended_entities && <div className="tweet-ivg">
+                            {tweet.extended_entities.media.map(img => (
+                                <div className="image" style={{ backgroundImage: `url(${img.media_url})` }}></div>
+                            ))}
+                        </div>}
+
+                        <div className="tweet-text">{tweet.full_text}</div>
+
+                        <div className="tweet-time">20 hours ago</div>
                     </div>
-
-                    <div className="tweet-ivg"></div>
-
-                    <div className="tweet-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione facilis dolore quam ad nobis, quae hic cupiditate eligendi dolor voluptatum incidunt voluptate tempore natus tempora, minima, officia earum amet ipsum recusandae reiciendis possimus? Veritatis consequuntur nemo quidem error minima, quo eum vero, cumque pariatur ea aliquid modi magnam libero velit?</div>
-
-                    <div className="tweet-time">20 hours ago</div>
                 </div>
-            </div>
+            ))}
             
-            <div className="next"><i className="fas fa-arrow-down"></i></div>
+            {data[0] && <div className="next"><i className="fas fa-arrow-down"></i></div>}
         </div>
     )
 }

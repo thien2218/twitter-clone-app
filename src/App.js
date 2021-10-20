@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [search, setSearch] = useState('');
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   const [count, setCount] = useState(0);
 
   useEffect(() => getData(), [count]);
@@ -19,7 +19,9 @@ function App() {
         count: 10,
       }
     })
-      .then(res => console.log(res.data))
+      .then(res => {
+        setData(res.data['statuses'])
+      })
       .catch(err => console.log(err.message))
   }
 

@@ -2,10 +2,16 @@ import Trends from "./Trends";
 import Tweets from "./Tweets";
 
 const Main = ({ setSearch, data, setCount }) => {
+    const getTrend = e => {
+        document.getElementById('search').value = e.target.innerHTML;
+        setSearch(e.target.innerHTML);
+        setCount(prevCount => prevCount += 1);
+    }
+
     return (
         <div className='main'>
             <Tweets setSearch={setSearch} setCount={setCount} data={data} />
-            <Trends />
+            <Trends getTrend={getTrend} />
         </div>
     )
 }

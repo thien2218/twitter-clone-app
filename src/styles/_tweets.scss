@@ -49,6 +49,7 @@
                     @include flexCenter();
                     background: #fff;
                     cursor: pointer;
+                    overflow: hidden;
                 }
 
                 .user {
@@ -76,7 +77,15 @@
                 height: 315px;
                 border: 1px solid $border;
                 cursor: pointer;
-                @include flexCenter();
+                display: flex;
+                flex-wrap: wrap;
+
+                .image {
+                    background-size: cover;
+                    background-position: center;
+                    flex-basis: 50%;
+                    flex-grow: 1;
+                }
             }
 
             .tweet-text {
