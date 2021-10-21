@@ -15,9 +15,9 @@
             border: none;
             width: calc(100% - 55px);
             padding: 0 50px 12px 5px;
-            border-bottom: 2px solid #FFFFFF;
+            border-bottom: 2px solid $textAndIcon;
             font-size: 32px;
-            color: #fff;
+            color: $textAndIcon;
         }
 
         .searchBtn {
@@ -47,9 +47,15 @@
                     height: 48px;
                     border-radius: 50%;
                     @include flexCenter();
-                    background: #fff;
                     cursor: pointer;
                     overflow: hidden;
+                    position: relative;
+
+                    a {
+                        height: 100%;
+                        width: 100%;
+                        position: absolute;
+                    }
                 }
 
                 .user {
@@ -85,6 +91,18 @@
                     background-position: center;
                     flex-basis: 50%;
                     flex-grow: 1;
+                    position: relative;
+
+                    a {
+                        height: 100%;
+                        width: 100%;
+                        position: absolute;
+                    }
+                }
+
+                video {
+                    height: 100%;
+                    width: 100%;
                 }
             }
 
@@ -97,6 +115,10 @@
                 margin-top: 25px;
                 opacity: 0.5;
                 font-size: 14px;
+
+                &::first-letter {
+                    text-transform: capitalize;
+                }
             }
         }
     }

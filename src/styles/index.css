@@ -1,38 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
-body {
-  margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #15202B;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-.container {
-  position: relative;
-  font-family: 'Roboto';
-  letter-spacing: 0.05rem;
-  width: 1200px;
-  min-height: 100vh;
-  color: #fff;
-}
-
-img {
-  width: 100%;
-  height: auto;
-  min-height: 100%;
-}
-
 .active {
   color: #03A9F4;
 }
@@ -143,9 +110,9 @@ img {
   border: none;
   width: calc(100% - 55px);
   padding: 0 50px 12px 5px;
-  border-bottom: 2px solid #FFFFFF;
+  border-bottom: 2px solid #f8f8f8;
   font-size: 32px;
-  color: #fff;
+  color: #f8f8f8;
 }
 
 .main .content .search .searchBtn {
@@ -187,9 +154,15 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #fff;
   cursor: pointer;
   overflow: hidden;
+  position: relative;
+}
+
+.main .content .tweet .tweet-box .tweet-info .tweet-user-pfp a {
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .main .content .tweet .tweet-box .tweet-info .user {
@@ -244,6 +217,18 @@ img {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  position: relative;
+}
+
+.main .content .tweet .tweet-box .tweet-ivg .image a {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.main .content .tweet .tweet-box .tweet-ivg video {
+  height: 100%;
+  width: 100%;
 }
 
 .main .content .tweet .tweet-box .tweet-text {
@@ -255,6 +240,10 @@ img {
   margin-top: 25px;
   opacity: 0.5;
   font-size: 14px;
+}
+
+.main .content .tweet .tweet-box .tweet-time::first-letter {
+  text-transform: capitalize;
 }
 
 .main .content .next {
@@ -335,5 +324,38 @@ img {
 
 .main .trend .trending-box span:not(.head):hover {
   background: #384C61;
+}
+
+body {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #15202B;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.container {
+  position: relative;
+  font-family: 'Roboto';
+  letter-spacing: 0.05rem;
+  width: 1200px;
+  min-height: 100vh;
+  color: #f8f8f8;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
 }
 /*# sourceMappingURL=index.css.map */
