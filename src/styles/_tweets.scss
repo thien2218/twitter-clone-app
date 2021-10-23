@@ -15,9 +15,9 @@
             border: none;
             width: calc(100% - 55px);
             padding: 0 50px 12px 5px;
-            border-bottom: 2px solid $textAndIcon;
+            border-bottom: 2px solid $text;
             font-size: 32px;
-            color: $textAndIcon;
+            color: $text;
         }
 
         .searchBtn {
@@ -109,6 +109,10 @@
             .tweet-text {
                 margin-top: 25px;
                 font-size: 22px;
+
+                span:nth-child(1) {
+                    color: $primary;
+                }
             }
 
             .tweet-time {
@@ -134,10 +138,10 @@
         font-size: 20px;
         cursor: pointer;
         margin-bottom: 25px;
+        transition: all .1s ease;
 
         &:hover {
-            color: $arrowHover;
-            border: 1px solid $arrowHover;
+            background-color: $nextHover;
         }
     }
 }

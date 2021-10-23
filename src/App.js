@@ -7,8 +7,22 @@ function App() {
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
   const [count, setCount] = useState(0);
+  const [next, setNext] = useState('');
+  const [nextCount, setNextCount] = useState(0);
 
   useEffect(() => getData(), [count]);
+  useEffect(() => getNextPage(), [nextCount])
+
+  const getNextPage = () => {
+    if(next) {
+      axios.get(`/api/tweets${next}`, {
+      }).then(res => {
+          data.push.apply(data, res.data['statuses']);
+          setNext(res.data["search_metadata"].next_results);
+        })
+        .catch(err => console.log(err.message))
+    }
+  }
 
   function getData() {
     if(!search) return;
@@ -20,7 +34,8 @@ function App() {
       }
     })
       .then(res => {
-        setData(res.data['statuses'])
+        setData(res.data['statuses']);
+        setNext(res.data["search_metadata"].next_results);
       })
       .catch(err => console.log(err.message))
   }
@@ -28,7 +43,7 @@ function App() {
   return (
     <div className='container'>
       <Navigation />
-      <Main setSearch={setSearch} setCount={setCount} data={data} />
+      <Main setSearch={setSearch} setNextCount={setNextCount} setCount={setCount} data={data} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import search from '../../images/search-icon.svg';
 import moment from 'moment';
 
-const Tweets = ({ setSearch, data, setCount }) => {
+const Tweets = ({ setSearch, data, setCount, setNextCount }) => {
     const onEnter = e => {
         if(e.key === 'Enter') {
             setCount(prevCount => prevCount += 1);
@@ -17,6 +17,8 @@ const Tweets = ({ setSearch, data, setCount }) => {
 
             {data.map(tweet => {
                 const createdAt = moment(tweet.created_at).fromNow();
+                const retweet = tweet.full_text.match(/^RT @.{1,}:\s/) && tweet.full_text.match(/^RT @.{1,}:\s/)[0];
+                const fullText = tweet.full_text.replace(retweet, '');
 
                 return <div className="tweet" key={tweet.id_str}>
                     <div className="tweet-box">
@@ -34,21 +36,24 @@ const Tweets = ({ setSearch, data, setCount }) => {
                                 if(obj.type === 'photo') {
                                     return <div className="image" key={obj.id_str} style={{ backgroundImage: `url(${obj.media_url})` }}><a href={obj.media_url} rel="noreferrer" target='_blank'></a></div>
                                 } else if(obj.type === 'video') {
-                                    return <video controls><source src={obj.video_info.variants.find(o => o.content_type === 'video/mp4').url} type='video/mp4' /></video>
+                                    return <video controls key={obj.id_str}><source src={obj.video_info.variants.find(o => o.content_type === 'video/mp4').url} type='video/mp4' /></video>
                                 } else {
-                                    return <video loop autoPlay><source src={obj.video_info.variants[0].url} type='video/mp4' /></video>
+                                    return <video loop autoPlay key={obj.id_str}><source src={obj.video_info.variants[0].url} type='video/mp4' /></video>
                                 }
                             })}
                         </div>}
 
-                        <div className="tweet-text">{tweet.full_text}</div>
+                        <div className="tweet-text">
+                            <span>{retweet}</span>
+                            <span>{fullText}</span>
+                        </div>
 
                         <div className="tweet-time">{createdAt}</div>
                     </div>
                 </div>
             })}
             
-            {data.length > 0 && <div className="next"><i className="fas fa-arrow-down"></i></div>}
+            {data.length > 0 && <div className="next" onClick={() => setNextCount(prevCount => prevCount += 1)}><i className="fas fa-arrow-down"></i></div>}
         </div>
     )
 }
