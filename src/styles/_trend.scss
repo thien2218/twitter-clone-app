@@ -1,0 +1,35 @@
+.trend {
+    border-left: 1px solid $border;
+    @include flexCenter();
+    align-items: flex-start;
+    
+    .trending-box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 275px;
+        height: 520px;
+        background: $trend;
+        border-radius: 20px;
+
+        .head {
+            width: 245px;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        span:not(.head) {
+            width: 245px;
+            padding: 15px 0 15px 5px;
+            font-weight: 500;
+            font-size: 22px;
+            cursor: pointer;
+            border-bottom: 1px solid $trendBorder;
+
+            &:hover {
+                background: $trendBorder;
+            }
+        }
+    }
+}

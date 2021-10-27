@@ -1,4 +1,7 @@
 // Body and container
+@import './variables';
+@import './nav';
+@import './main';
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
@@ -25,11 +28,16 @@ code {
     letter-spacing: 0.05rem;
     width: 1200px;
     min-height: 100vh;
-    color: #fff;
+    color: $text;
 }
 // Body and container
 
 
-@import './variables';
-@import './nav';
-@import './main';
+// Adjustment
+img {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+}
+// Adjustment
+
