@@ -2,6 +2,7 @@ import Trends from "./Trends";
 import Tweets from "./Tweets";
 
 const Main = ({ setSearch, data, setCount, setNextCount }) => {
+    // Get trending tweets when clicking the trends on the trend bar
     const getTrend = e => {
         document.getElementById('search').value = e.target.innerHTML;
         setSearch(e.target.innerHTML);

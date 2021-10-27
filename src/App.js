@@ -4,15 +4,18 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 function App() {
+  // States
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
   const [count, setCount] = useState(0);
   const [next, setNext] = useState('');
   const [nextCount, setNextCount] = useState(0);
 
+  // Effects
   useEffect(() => getData(), [count]);
-  useEffect(() => getNextPage(), [nextCount])
+  useEffect(() => getNextPage(), [nextCount]);
 
+  // Get data for next page while adding it to data list
   const getNextPage = () => {
     if(next) {
       axios.get(`/api/tweets${next}`, {
@@ -24,6 +27,7 @@ function App() {
     }
   }
 
+  // Get data from API and set the data to the response
   function getData() {
     if(!search) return;
 

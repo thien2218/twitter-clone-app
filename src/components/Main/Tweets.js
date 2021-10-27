@@ -2,6 +2,7 @@ import search from '../../images/search-icon.svg';
 import moment from 'moment';
 
 const Tweets = ({ setSearch, data, setCount, setNextCount }) => {
+    // Get search results when press enter on search
     const onEnter = e => {
         if(e.key === 'Enter') {
             setCount(prevCount => prevCount += 1);

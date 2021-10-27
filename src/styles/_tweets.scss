@@ -2,6 +2,7 @@
     width: 600px;
     height: 100%;
 
+    // Search bar
     .search{
         width: 100%;
         position: relative;
@@ -29,7 +30,11 @@
             height: 31px;
         }
     }
+    // Search bar
 
+
+    
+    // Tweets
     .tweet {
         width: 100%;
         border: 1px solid $border;
@@ -39,6 +44,7 @@
         .tweet-box {
             padding: 25px;
 
+            // User info
             .tweet-info {
                 display: flex;
 
@@ -75,7 +81,11 @@
                     }
                 }
             }
+            // Tweets
 
+
+
+            // Images, videos, gifs
             .tweet-ivg {
                 margin-top: 25px;
                 border-radius: 20px;
@@ -105,7 +115,11 @@
                     width: 100%;
                 }
             }
+            // Images, videos, gifs
 
+
+
+            // Tweet text
             .tweet-text {
                 margin-top: 25px;
                 font-size: 22px;
@@ -124,9 +138,11 @@
                     text-transform: capitalize;
                 }
             }
+            // Tweet text
         }
     }
 
+    // Next button
     .next {
         @include flexCenter();
         color: $arrow;
