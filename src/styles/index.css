@@ -240,6 +240,18 @@
   color: #03A9F4;
 }
 
+.main .content .tweet .tweet-box .tweet-text span:nth-child(2) {
+  white-space: pre-line;
+}
+
+.main .content .tweet .tweet-box .tweet-text .link {
+  margin-top: 20px;
+}
+
+.main .content .tweet .tweet-box .tweet-text .link a {
+  color: #f8f8f8;
+}
+
 .main .content .tweet .tweet-box .tweet-time {
   margin-top: 25px;
   opacity: 0.5;
@@ -339,17 +351,14 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
- 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
- sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #15202B;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
- monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .container {

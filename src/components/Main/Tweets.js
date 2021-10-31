@@ -18,8 +18,20 @@ const Tweets = ({ setSearch, data, setCount, setNextCount }) => {
 
             {data.map(tweet => {
                 const createdAt = moment(tweet.created_at).fromNow();
-                const retweet = tweet.full_text.match(/^RT @.{1,}:\s/) && tweet.full_text.match(/^RT @.{1,}:\s/)[0];
-                const fullText = tweet.full_text.replace(retweet, '');
+                const tweetText = tweet.full_text;
+                const regex1 = /^RT @.\S{1,}\s/;
+                const regex2 = /https:\/\/.\S{1,}\s*/g;
+                const links = [...tweetText.matchAll(regex2)];
+                const retweet = tweetText.match(regex1) && tweetText.match(regex1)[0];
+                let fullText = tweetText.replace(retweet, '');
+
+                for(let i = 0; i < links.length; i++) {
+                    if(links.length) {
+                        fullText = fullText.replace(links[i][0], '\n');
+                    } else {
+                        break
+                    }
+                }
 
                 return <div className="tweet" key={tweet.id_str}>
                     <div className="tweet-box">
@@ -47,6 +59,9 @@ const Tweets = ({ setSearch, data, setCount, setNextCount }) => {
                         <div className="tweet-text">
                             <span>{retweet}</span>
                             <span>{fullText}</span>
+                            {links.length > 0 && links.map(arr => (
+                                <div className="link" key={arr['index']}>URL: <a href={arr[0]} rel="noreferrer" target='_blank'>{arr[0]}</a></div>
+                            ))}
                         </div>
 
                         <div className="tweet-time">{createdAt}</div>
