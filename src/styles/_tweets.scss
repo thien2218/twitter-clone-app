@@ -26,8 +26,12 @@
             right: 5px;
             bottom: 15px;
             cursor: pointer;
-            width: 31px;
-            height: 31px;
+            width: 30px;
+            height: 30px;
+
+            svg path {
+                fill: $text;
+            }
         }
     }
     // Search bar
@@ -90,7 +94,7 @@
                 margin-top: 25px;
                 border-radius: 20px;
                 overflow: hidden;
-                height: 315px;
+                height: 350px;
                 border: 1px solid $border;
                 cursor: pointer;
                 display: flex;
